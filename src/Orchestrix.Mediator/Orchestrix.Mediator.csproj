@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+        <PackageId>Orchestrix.Mediator</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>Mohammad Anzawi</Authors>
+        <Company>Orchestrix.Mediator</Company>
+        <Product>Orchestrix.Mediator</Product>
+        <Description>
+            Orchestrix.Mediator is a modern, high-performance alternative to MediatR, built for .NET 8+ and beyond.
+            It provides a clean abstraction for in-process messaging with support for Request/Response,
+            Notifications, Streaming, Pipelines, and Diagnostics. Supports parallel notification handling,
+            hook-based diagnostics, and Roslyn-based source generators.
+        </Description>
+        <PackageTags>
+            mediator; mediatr; cqs; cqrs; dispatcher; .net8; dependency-injection; pipeline; request-handler; notification; source-generator
+        </PackageTags>
+        <PackageProjectUrl>https://github.com/anzawi/Orchestrix.Mediator</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/anzawi/Orchestrix.Mediator</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <Deterministic>true</Deterministic>
+        <PackageIcon>icon.png</PackageIcon>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="[6.0.0,)"/>
+        <PackageReference Include="System.Linq.Async" Version="[6.0.3,)"/>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Core\" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="../../icon.png" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <!-- for local developments -->
+    <Target Name="CopyNuPkgToLocalSource" AfterTargets="Pack">
+        <Copy
+                SourceFiles="$(OutputPath)$(PackageId).$(Version).nupkg"
+                DestinationFolder="$(SolutionDir)nupkgs" />
+    </Target>
+</Project>

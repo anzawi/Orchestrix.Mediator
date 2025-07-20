@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+        <PackageId>Orchestrix.Mediator.Cqrs</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>Mohammad Anzawi</Authors>
+        <Description>
+            Orchestrix.Mediator.Cqrs adds clean CQRS-style base abstractions for commands and queries to the Orchestrix.Mediator mediator library.
+            Designed for vertical slice architectures and CQS-based separation of concerns.
+        </Description>
+        <PackageTags>cqrs; mediator; command; query; dotnet; Orchestrix; Orchestrix.Mediator; vertical-slice</PackageTags>
+        <PackageProjectUrl>https://github.com/anzawi/Orchestrix.Mediator</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/anzawi/Orchestrix.Mediator</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <Deterministic>true</Deterministic>
+        <PackageIcon>icon.png</PackageIcon>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Orchestrix.Mediator" Version="1.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="../../icon.png" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <!-- for local developments -->
+    <Target Name="CopyNuPkgToLocalSource" AfterTargets="Pack">
+        <Copy
+                SourceFiles="$(OutputPath)$(PackageId).$(Version).nupkg"
+                DestinationFolder="$(SolutionDir)nupkgs" />
+    </Target>
+</Project>

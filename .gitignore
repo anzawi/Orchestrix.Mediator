@@ -1,0 +1,51 @@
+# .NET build output
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+
+# NuGet package output
+*.nupkg
+*.snupkg
+nupkgs/
+*.nuspec
+
+# Build artifacts
+*.dll
+*.exe
+*.pdb
+*.cache
+*.db
+*.log
+
+# Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# Test Results
+TestResults/
+*.coverage
+*.coveragexml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local project assets (optional)
+icon.png
+*.ico
+*.svg
+*.xcf
+*.psd
+
+# Source Generator output (if any are emitted)
+Generated/
+Orchestrix.Mediator.sln.DotSettings.user

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "DebugRoslynSourceGenerator": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "../Orchestrix.Mediator.SourceGenerators.Sample/Orchestrix.Mediator.SourceGenerators.Sample.csproj"
+    }
+  }
+}

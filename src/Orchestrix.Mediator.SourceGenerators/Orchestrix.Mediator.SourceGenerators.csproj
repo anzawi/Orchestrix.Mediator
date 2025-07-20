@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <IsPackable>true</IsPackable>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <IsRoslynComponent>true</IsRoslynComponent>
+        <Version>1.0.0</Version>
+        <PackageId>Orchestrix.Mediator.SourceGenerators</PackageId>
+        <Title>Orchestrix.Mediator.SourceGenerators</Title>
+        <Description>Source generator extension for Orchestrix.Mediator. Enables advanced compile-time dispatching for .NET 8+ mediator patterns.</Description>
+        <PackageTags>orchestrix;mediator;sourcegenerator;roslyn;dotnet</PackageTags>
+        <Authors>Mohammad Anzawi</Authors>
+        <Company>anzawi.dev</Company>
+        <RepositoryUrl>https://github.com/anzawi/Orchestrix.Mediator</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageProjectUrl>https://github.com/anzawi/Orchestrix.Mediator</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageIcon>icon.png</PackageIcon>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <PackageOutputPath>$(OutputPath)</PackageOutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" PrivateAssets="all" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="$(TargetPath)" Pack="true" PackagePath="analyzers/dotnet/cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="../../icon.png" Pack="true" PackagePath="\" />
+    </ItemGroup>
+    
+    <!-- for local developments -->
+    <Target Name="CopyNuPkgToLocalSource" AfterTargets="Pack">
+        <Copy
+                SourceFiles="$(PackageOutputPath)\$(PackageId).$(Version).nupkg"
+                DestinationFolder="$(SolutionDir)nupkgs" />
+    </Target>
+</Project>

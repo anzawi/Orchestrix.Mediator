@@ -1,0 +1,6 @@
+root = true
+
+# Suppress ReSharper’s namespace check in Abstractions
+[Abstractions/*.cs]
+resharper_namespace_matches_file_structure = none
+dotnet_diagnostic.SA1402.severity = none
