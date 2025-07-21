@@ -239,4 +239,4 @@ builder.Services.AddOrchestrix(cfg =>
 
 ## ❓ Need help?
 
-📬 [Open an issue on GitHub](https://github.com/MohammadAnzawi/Orchestrix.Mediator/issues)
+📬 [Open an issue on GitHub](https://github.com/anzawi/Orchestrix.Mediator/issues)
