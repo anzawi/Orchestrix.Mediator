@@ -104,16 +104,17 @@ public async Task<IActionResult> Test([FromServices] ISender sender)
 **Default (Reflection-based):**
 
 ```csharp
-services.AddOrchestrix(assemblies: [typeof(TestCommandHandler).Assembly]);
+services.AddOrchestrix(cfg => cfg.RegisterHandlersFromAssemblies(typeof(SomeHandler).Assembly));
 ```
 
 **Enable Source Generator (opt-in):**
 
 ```csharp
-services.AddOrchestrix(options =>
+services.AddOrchestrix(cfg => 
 {
-    options.MediatorMode = MediatorMode.SourceGenerator;
-}, assemblies: [typeof(TestCommandHandler).Assembly]);
+    cfg.UseSourceGenerator() // add this line
+    .RegisterHandlersFromAssemblies(typeof(SomeHandler).Assembly);
+});
 ```
 
 ---
