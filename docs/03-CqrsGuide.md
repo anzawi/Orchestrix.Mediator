@@ -120,12 +120,6 @@ Once registered, use the same `ISender.Send(...)` or `IMediator.Send(...)` appro
 var id = await sender.Send(new CreateUserCommand("Test"));
 ```
 
-If you're using the **source generator**:
-
-```csharp
-var id = await dispatcher.Dispatch(new CreateUserCommand("Test"));
-```
-
 ---
 
 ## ✅ Summary
