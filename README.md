@@ -201,10 +201,11 @@ Full Documentation: [Orchestrix.Mediator Docs →](https://github.com/anzawi/Orc
 | 📡 [Streaming](https://github.com/anzawi/Orchestrix.Mediator/blob/main/docs/06-Streaming.md)                 | Streaming requests                |
 | 📢 [Notifications](https://github.com/anzawi/Orchestrix.Mediator/blob/main/docs/07-Notifications.md)         | Publish, parallelism              |
 | 🔍 [Diagnostics](https://github.com/anzawi/Orchestrix.Mediator/blob/main/docs/08-Diagnostics.md)             | Tracing, hook config              |
+| 🌀 [Sagas Guide](https://github.com/anzawi/Orchestrix.Mediator/blob/main/docs/11-sagas.md)                   | Add in-process Sagas              |
 | 🧙 [Advanced Usage](https://github.com/anzawi/Orchestrix.Mediator/blob/main/docs/09-AdvancedUsage.md)        | `TrySend`, `TryPublish`, fallback |
 | 📖 [API Reference](https://github.com/anzawi/Orchestrix.Mediator/blob/main/docs/09-AdvancedUsage.md)         | Interface + type index            |
 | ❓ [FAQ](https://github.com/anzawi/Orchestrix.Mediator/blob/main/docs/10-FAQ.md)                              | Answers to common Qs              |
-| 🔁 [Migration Guide](https://github.com/anzawi/Orchestrix.Mediator/blob/main/docs/MIGRATIONFromMediatR.md)   | From MediatR to Orchestrix         |
+| 🔁 [Migration Guide](https://github.com/anzawi/Orchestrix.Mediator/blob/main/docs/MIGRATIONFromMediatR.md)   | From MediatR to Orchestrix        |
 
 ---
 
