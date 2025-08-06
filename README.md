@@ -240,7 +240,7 @@ MIT — free for personal and commercial use.
 ## 🙏 Acknowledgements
 
 Inspired by MediatR  
-Rebuilt from scratch for modern .NET by **@Mohammad_Anzawi**  
+Rebuilt from scratch for modern .NET by **@anzawi**  
 Proudly open-source and forever free
 
 🦖 **Orchestrix.Mediator**: Mediation, Modernized.

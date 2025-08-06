@@ -187,4 +187,4 @@ var result = await sender.Object.Send(new CreateUserCommand("Test", "email@test.
 - [Hooks & Pipelines →](./05-HooksAndPipelines.md)
 - [API Reference →](./99-ApiReference.md)
 
-💬 Need help? Found an issue? Open a GitHub issue and tag [@Mohammad_Anzawi](https://github.com/MohammadAnzawi)
+💬 Need help? Found an issue? Open a GitHub issue and tag [@anzawi](https://github.com/anzawi)
