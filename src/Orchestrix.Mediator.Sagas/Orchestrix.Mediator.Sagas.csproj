@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+        <PackageId>Orchestrix.Mediator.Sagas</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>Mohammad Anzawi</Authors>
+        <Description>Fluent, in-process saga orchestration engine for Orchestrix.Mediator — with step retries, compensation, timeout, hooks, and decorators.</Description>
+
+        <PackageTags>saga;orchestration;workflow;compensation;mediator;command;retry;timeout;dotnet;Orchestrix</PackageTags>
+        <PackageProjectUrl>https://github.com/anzawi/Orchestrix.Mediator</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/anzawi/Orchestrix.Mediator</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <Deterministic>true</Deterministic>
+        <PackageIcon>icon.png</PackageIcon>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="Orchestrix.Mediator" Version="1.0.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="[6.0.0,)"/>
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="..\..\icon.png">
+        <Pack>true</Pack>
+        <PackagePath>/</PackagePath>
+        <Link>icon.png</Link>
+      </None>
+    </ItemGroup>
+
+    <!-- for local developments -->
+    <Target Name="CopyNuPkgToLocalSource" AfterTargets="Pack">
+        <Copy
+                SourceFiles="$(OutputPath)$(PackageId).$(Version).nupkg"
+                DestinationFolder="$(SolutionDir)nupkgs" />
+    </Target>
+</Project>
