@@ -69,23 +69,34 @@ internal sealed class OrchestrixBuilder(IServiceCollection services) : IOrchestr
         return this;
     }
 
-    
+
     internal void Apply()
     {
-        if (_handlerAssemblies.Count == 0)
-            throw new InvalidOperationException(
-                "At least one assembly must be registered via RegisterHandlersFromAssemblies.");
-
-
-        if (_useSourceGen)
+        var handlersCount = _handlerAssemblies.Count;
+        if (handlersCount == 0)
         {
-            ServiceRegistration.RegisterSourceGenMediator(Services);
-            ServiceRegistration.TryRegisterGeneratedHandlers(Services);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Cannot detect any handlers!.");
+            Console.WriteLine("At least one assembly must be registered via RegisterHandlersFromAssemblies.");
+            Console.ResetColor();
+
+#if !DEBUG
+    throw new InvalidOperationException("No handler assemblies registered.");
+#endif
         }
-        else
+
+        if (handlersCount > 0)
         {
-            ServiceRegistration.RegisterHandlers(Services, _handlerAssemblies.ToArray());
-            ServiceRegistration.RegisterDefaultMediator(Services);
+            if (_useSourceGen)
+            {
+                ServiceRegistration.RegisterSourceGenMediator(Services);
+                ServiceRegistration.TryRegisterGeneratedHandlers(Services);
+            }
+            else
+            {
+                ServiceRegistration.RegisterHandlers(Services, _handlerAssemblies.ToArray());
+                ServiceRegistration.RegisterDefaultMediator(Services);
+            }
         }
 
         Services.AddScoped<ISender>(sp => sp.GetRequiredService<IMediator>());
@@ -103,6 +114,5 @@ internal sealed class OrchestrixBuilder(IServiceCollection services) : IOrchestr
             if (_explicitHookTypes.Count > 0)
                 HookRegistration.RegisterExplicitHooks(Services, _explicitHookTypes);
         }
-
     }
 }
